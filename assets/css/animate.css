@@ -1,0 +1,89 @@
+/* &=======> Typing Text <======== */
+@-webkit-keyframes typing {
+  from { width: calc(26%) }
+  to {
+      width: calc(100%);
+   }
+}
+@keyframes typing {
+  from { width: calc(26%) }
+  to {
+      width: calc(100%);
+   }
+}
+
+@-webkit-keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--color-white); }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--color-white); }
+}
+
+@-webkit-keyframes change-word {
+  0%, 40% {
+      content: 'Developer';
+  }
+  61%, 100% {
+      content: 'Designer';
+  }
+}
+
+@keyframes change-word {
+  0%, 40% {
+      content: 'Developer';
+  }
+  61%, 100% {
+      content: 'Designer';
+  }
+}
+
+
+/* &========> Clients Counter <======== */
+@property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+
+  .customers-counter,
+  .projects-counter,
+  .codeLines-counter,
+  .files-counter {
+    transition: --num 8s;
+    counter-set: num var(--num);
+    font: 900 30px "Montserrat";
+  }
+
+  .customers-counter::after,
+  .projects-counter::after,
+  .codeLines-counter::after,
+  .files-counter::after {
+    content: counter(num);
+  }
+
+  body:has(.clients:target) .customers-counter,
+  body:has(.team:target) .customers-counter,
+  body:has(.contact:target) .customers-counter {
+    --num: 850;
+  }
+
+  body:has(.clients:target) .projects-counter,
+  body:has(.team:target) .projects-counter,
+  body:has(.contact:target) .projects-counter {
+    --num: 230;
+  }
+
+  body:has(.clients:target) .codeLines-counter,
+  body:has(.team:target) .codeLines-counter,
+  body:has(.contact:target) .codeLines-counter {
+    --num: 9450;
+  }
+
+  body:has(.clients:target) .files-counter,
+  body:has(.team:target) .files-counter,
+  body:has(.contact:target) .files-counter {
+    --num: 780;
+  }
